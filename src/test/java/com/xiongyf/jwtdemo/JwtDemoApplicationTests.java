@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -27,7 +28,7 @@ public class JwtDemoApplicationTests {
         userRepository.save(new User("aa", "aa123456", 13));
         userRepository.save(new User("bb", "bb123456", 14));
         userRepository.save(new User("cc", "cc123456", 15));
-        User bb = userRepository.findByUsername("bb");
+        List<User> bb = userRepository.findAndOrder("aa");
         System.out.println(bb);
 
         // Assert.assertEquals(3, userRepository.findAll().size());
