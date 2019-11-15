@@ -5,6 +5,7 @@ import lombok.Data;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -25,6 +26,9 @@ public class User {
 
     @Column(name = "age")
     private Integer age;
+
+    @Column(name = "create_time")
+    private LocalDateTime createTime;
 
     public User() {
 
