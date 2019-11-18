@@ -1,6 +1,8 @@
 package com.xiongyf.jwtdemo;
 
+import com.xiongyf.jwtdemo.system.pojo.Book;
 import com.xiongyf.jwtdemo.system.pojo.User;
+import com.xiongyf.jwtdemo.system.repository.BookRepository;
 import com.xiongyf.jwtdemo.system.repository.UserRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
@@ -20,6 +22,10 @@ public class UserTest {
 
     @Resource
     UserRepository userRepository;
+
+    @Resource
+    BookRepository bookRepository;
+
 
     @Test
     public void testLocalTimeZone() {
@@ -41,11 +47,20 @@ public class UserTest {
         System.out.println(LocalDateTime.of(LocalDate.now(), LocalTime.MIN));
         System.out.println(LocalDateTime.of(LocalDate.now(), LocalTime.MAX));
         List<User> users = userRepository.findByCreateTimeBetween(
-                LocalDateTime.of(LocalDate.now(), LocalTime.MIN),
+                LocalDateTime.of(LocalDate.now(ZoneId.of("GMT")), LocalTime.MIN),
                 LocalDateTime.of(LocalDate.now(), LocalTime.MAX)
         );
         assertTrue(1 == users.size());
         assertEquals(users.get(0).getCreateTime().toLocalDate(), LocalDate.now());
+    }
+
+
+    @Test
+    public void testManyToOne() {
+        Book book = bookRepository.findBookById(1L);
+        assertEquals(book.getOwner().getUsername(),"Tom");
+        System.out.println(book);
+
     }
 
 }
