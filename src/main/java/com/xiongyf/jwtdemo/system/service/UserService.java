@@ -2,6 +2,6 @@ package com.xiongyf.jwtdemo.system.service;
 
 public interface UserService {
 
-    void updateIfNot();
+    void saveIfNot();
 
 }

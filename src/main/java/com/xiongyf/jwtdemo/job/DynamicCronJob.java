@@ -15,8 +15,6 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 
 
-@Component
-@EnableScheduling
 @Slf4j
 public class DynamicCronJob implements SchedulingConfigurer {
 

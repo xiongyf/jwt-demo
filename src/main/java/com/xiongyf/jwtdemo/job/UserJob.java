@@ -14,9 +14,9 @@ public class UserJob {
     @Autowired
     UserService userService;
 
-    @Scheduled(cron = "0 0/2 * * * ?")
-    public void updateUserIfNot() {
+    @Scheduled(cron = "0 0/1 * * * ?")
+    public void saveUserIfNot() {
         System.out.println(LocalDateTime.now());
-        userService.updateIfNot();
+        userService.saveIfNot();
     }
 }
