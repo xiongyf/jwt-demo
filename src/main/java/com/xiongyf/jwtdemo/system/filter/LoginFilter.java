@@ -3,16 +3,14 @@ package com.xiongyf.jwtdemo.system.filter;
 import com.xiongyf.jwtdemo.system.pojo.JwtUser;
 import com.xiongyf.jwtdemo.system.util.JwtUtil;
 import io.jsonwebtoken.Claims;
-import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@Component
-@WebFilter("/*")
+/*@Component
+@WebFilter("/*")*/
 public class LoginFilter implements Filter {
 
     @Override
