@@ -1,0 +1,23 @@
+spring:
+    datasource:
+        platform: h2
+        url: jdbc:h2:file:C:/dev/H2/mine
+        driver-class-name: org.h2.Driver
+        username: sa
+        password: sa
+    #开启h2数据库console访问
+    h2:
+        console:
+            enabled: true
+    jpa:
+        show-sql: true
+        properties:
+            hibernate:
+                hbm2ddl:
+                    auto: none
+                format_sql: true
+            show-sql: true
+
+logging:
+    level:
+        root: INFO
