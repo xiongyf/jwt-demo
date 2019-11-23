@@ -22,13 +22,10 @@ public class JwtDemoApplication {
 
 	@Bean
 	public ThreadPoolTaskScheduler threadPoolTaskScheduler() {
-		log.info("创建定时任务调度线程池 start");
 		ThreadPoolTaskScheduler threadPoolTaskScheduler = new ThreadPoolTaskScheduler();
 		threadPoolTaskScheduler.setPoolSize(20);
-		threadPoolTaskScheduler.setThreadNamePrefix("taskExecutor-");
 		threadPoolTaskScheduler.setWaitForTasksToCompleteOnShutdown(true);
 		threadPoolTaskScheduler.setAwaitTerminationSeconds(60);
-		log.info("创建定时任务调度线程池 end");
 		return threadPoolTaskScheduler;
 	}
 

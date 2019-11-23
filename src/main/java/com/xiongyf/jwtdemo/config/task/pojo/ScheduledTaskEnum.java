@@ -8,7 +8,7 @@ import com.xiongyf.jwtdemo.config.task.job.ScheduledTaskJob;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-public enum  ScheduledTaskEnum {
+public enum ScheduledTaskEnum {
 
     /**
      * 任务1
