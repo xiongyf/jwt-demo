@@ -1,7 +1,7 @@
 package com.xiongyf.jwtdemo.system.service.impl;
 
 import com.xiongyf.jwtdemo.common.schedule.ScheduleUtil;
-import com.xiongyf.jwtdemo.config.task.job.UpdateUserTask;
+import com.xiongyf.jwtdemo.job.UpdateUserTask;
 import com.xiongyf.jwtdemo.system.pojo.User;
 import com.xiongyf.jwtdemo.system.repository.UserRepository;
 import com.xiongyf.jwtdemo.system.service.SystemParamService;
