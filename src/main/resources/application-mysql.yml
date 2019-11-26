@@ -7,7 +7,7 @@ properties:
 spring:
     datasource:
         driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://127.0.0.1:3306/mine?serverTimezone=UTC
+        url: jdbc:mysql://127.0.0.1:3306/mine?serverTimezone=Asia/Shanghai
         username: root
         password: root
         max-idle: 10
