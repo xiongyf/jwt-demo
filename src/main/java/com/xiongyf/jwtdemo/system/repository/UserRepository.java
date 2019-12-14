@@ -4,9 +4,11 @@ package com.xiongyf.jwtdemo.system.repository;
 import com.xiongyf.jwtdemo.system.pojo.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Lock;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import javax.persistence.LockModeType;
+import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -16,7 +18,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     User findByAge(Integer age);
 
-//    @Lock(value = LockModeType.PESSIMISTIC_READ)
+    //    @Lock(value = LockModeType.PESSIMISTIC_READ)
     @Query(value = "select * from tb_user u where u.id=? for update ", nativeQuery = true)
     User findUserById(Long id);
 
@@ -30,5 +32,10 @@ public interface UserRepository extends JpaRepository<User, Long> {
             "        user0_.create_time between ?1 and ?2 ", nativeQuery = true)*/
     @Lock(value = LockModeType.PESSIMISTIC_READ)
     List<User> findByCreateTimeBetween(LocalDateTime begin, LocalDateTime end);
+
+    @Modifying
+    @Transactional
+    @Query(value = "update User u set u.age=u.age + 1 where u.id=?1 and u.updateTime=?2")
+    int increaseAgeByIdAndUpdateTime(Long id, LocalDateTime updateTime);
 
 }
